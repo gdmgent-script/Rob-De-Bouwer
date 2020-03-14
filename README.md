@@ -72,6 +72,6 @@ voorbeeld Rob de bouwer
 Om de (berekende) waardes, op het scherm te brengen (dus in de html te steken), kan je gebruik maken van de span-tags, die elk een ID gekregen hebben.
 In html staat reeds `<span class="label" id="wall-1-amountstones">0 stenen</span>` in js plaats je de waarde in het element door middel van:
 
-`.textContent = … `
-`var lblWall1 = document.getElementById('wall-1-amountstones'); `
-`lblWall1.textContent = 5;`
+`.textContent = … `  
+`var lblWall1 = document.getElementById('wall-1-amountstones'); `  
+`lblWall1.textContent = 5;`  
