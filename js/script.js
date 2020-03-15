@@ -1,5 +1,4 @@
 function createBrick(color) {
-  
   // create a brick
   var brick = document.createElement('div');
   // create class, brick + space + color
