@@ -82,29 +82,12 @@ btnCalculate.onclick = function() {
   var lblWall = document.getElementById('wall-4-amountstones');
   // set text to label
   lblWall.textContent = makeLabel(amountBlueStones);
-  
-
-
-
-
-
-
 
 
   // biggest wall
   var lblBiggest = document.getElementById('wall-biggest');
   lblBiggest.textContent = getBiggestWall(amountYellowStones, amountBlackStones, amountOrangeStones, amountBlueStones);
   
-
-
-
-
-
-
-
-
-
-
 
 
   // smallest wall
@@ -182,4 +165,3 @@ function getSmallestWall(yellow, black, orange, blue) {
 
   return minWallString;
 }
-
