@@ -1,3 +1,4 @@
+// Function: to create a new bricks
 function createBrick(color) {
   // create a brick
 
@@ -9,6 +10,7 @@ function createBrick(color) {
 
 }
 
+//Function: to add a brick to a certain wall - parameters: wall-id and color of brick
 function addBrickToWall(color, wallNumber) {
   // create id by combining wall- and number
 
@@ -20,6 +22,7 @@ function addBrickToWall(color, wallNumber) {
 
 }
 
+//Function: to remove a brick from a certain wall - parameters: wall-id and color of brick
 function removeBrickFromWall(color, wallNumber) {
   // create id by combining wall- and number
 
