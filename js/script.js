@@ -1,267 +1,121 @@
 function createBrick(color) {
   // create a brick
-  var brick = document.createElement('div');
+
   // create class, brick + space + color
-  var brickClass = 'brick brick-' + color;
+
   // add class to brick
-  brick.className = brickClass;
-  
-  return brick;  
+
+  //give result back
+
 }
 
 function addBrickToWall(color, wallNumber) {
   // create id by combining wall- and number
-  var wallId = 'wall-' + wallNumber;
+
   // define the wall element
-  var wall = document.getElementById(wallId);
+
   // build a new brick
-  var brick = createBrick(color);
+
   // add the brick to the correct wall
-  wall.appendChild(brick);
+
 }
 
 function removeBrickFromWall(color, wallNumber) {
   // create id by combining wall- and number
-  var wallId = 'wall-' + wallNumber;
-  // define the wall element
+
+  // get wall by id
   var wall = document.getElementById(wallId);
   
-  // build a new brick
-  var bricks = document.getElementsByClassName("brick-"+color);
-  if(bricks.length > 0)
-    wall.removeChild(bricks[0]);
+  // delete brick from wall if it was not the last one
 }
 
+//Function: Get amount of stones
 function getAmountStones(color) {
+  //Get all stones by color
   var yellowStones = document.getElementsByClassName("brick-" + color);
+  //Get lenght (number of items of stones)
   var amountYellowStones = yellowStones.length;
+  //Give back amount of stones
   return amountYellowStones;
 }
 
-function makeLabel(amount) {
-  var stone = '';
-  if(amount == 1) {
-    stone = 'steen';
-  }
-  else {
-    stone = 'stenen';
-  }
-  
-  var label = amount + " " + stone;
-  return label;
+//Function: to create a label, if 1 stone = 1 steen, if more stones = 2 stenen
+function makeLabel(amount){
+  //if else
+  // give back label
 }
 
+//Function: get biggest wall; 
+function getBiggestWall(yellow, black, orange, blue) {
+
+  // starten van het standpunt dat de gele muur de grootste is
+  // use if/else to check the biggest wall
+
+  // Give back the biggest wall
+
+}
+
+//Function: Get smallest wall
+function getSmallestWall(yellow, black, orange, blue) {
+
+  // starten van het standpunt dat de gele muur de kleinste is
+
+  // Give back the smallest wall
+}
+
+
+//Get btn calculate, and check if clicked
 var btnCalculate = document.getElementById('btnCalculate');
 btnCalculate.onclick = function() {
   
   // calculate amount of yellow stones
-  var amountYellowStones = getAmountStones('yellow');
+
   // set first label in a var
-  var lblWall = document.getElementById('wall-1-amountstones');
+
   // set text to label
-  lblWall.textContent = makeLabel(amountYellowStones);
+
   
-  // calculate amount of yellow stones
-  var amountBlackStones = getAmountStones('black');
+  // calculate amount of black stones
+
   // set first label in a var
-  var lblWall = document.getElementById('wall-2-amountstones');
+
   // set text to label
-  lblWall.textContent = makeLabel(amountBlackStones);
+
   
-  // calculate amount of yellow stones
-  var amountOrangeStones = getAmountStones('orange');
+  // calculate amount of orange stones
+
   // set first label in a var
-  var lblWall = document.getElementById('wall-3-amountstones');
+
   // set text to label
-  lblWall.textContent = makeLabel(amountOrangeStones);
+
   
-  // calculate amount of yellow stones
-  var amountBlueStones = getAmountStones('blue');
+  // calculate amount of blue stones
+
   // set first label in a var
-  var lblWall = document.getElementById('wall-4-amountstones');
+
   // set text to label
-  lblWall.textContent = makeLabel(amountBlueStones);
+
+
   
 
+  //Get biggest wall: getBiggestWall
 
 
+  //Get smallest wall: getSmallestWall
 
-
-
-
-
-  // biggest wall
-  var lblBiggest = document.getElementById('wall-biggest');
-  lblBiggest.textContent = getBiggestWall(amountYellowStones, amountBlackStones, amountOrangeStones, amountBlueStones);
   
-
-
-
-
-
-
-
-
-
-
-
-
-  // smallest wall
-  var lblSmallest = document.getElementById('wall-smallest');
-  lblSmallest.textContent = getSmallestWall(amountYellowStones, amountBlackStones, amountOrangeStones, amountBlueStones);
+  //Calculate cost of all the stones
+  var costYellow;
+  var costBlack;
+  var costOrange;
+  var costBlue;
+  var costTotal;
   
-  var costYellow = 2 * amountYellowStones; 
-  var costBlack = 7.5 * amountBlackStones;
-  var costOrange = 9 * amountOrangeStones;
-  var costBlue = 0.3 * amountBlueStones;
-  var costTotal = costYellow + costBlack + costOrange + costBlue;
-  
+  //Get element from DOM to add the cost result
   document.getElementById('cost-yellow').textContent = '€ ' + costYellow;
-  document.getElementById('cost-black').textContent = '€ ' + costBlack;
-  document.getElementById('cost-orange').textContent = '€ ' + costOrange;
-  document.getElementById('cost-blue').textContent = '€ ' + costBlue;
-  document.getElementById('cost-total').textContent = '€ ' + costTotal;
+  //...
   
 }
 
 
-function getBiggestWall(yellow, black, orange, blue) {
 
-  // starten van het standpunt dat de gele muur de grootste is
-  var max = yellow;
-  var maxWallString = "Muur 1";
-
-  if(max < black) {
-    max = black;
-    maxWallString = "Muur 2";
-  }
-  else if(max < orange) {
-    max = orange;
-    maxWallString = "Muur 3";
-  }
-  else if(max < blue) {
-    max = blue;
-    maxWallString = "Muur 4";
-  }
-  else if(max == black || max == orange || max == blue) {
-    maxWallString = "Meer dan 1 grootste muur";
-  } 
-  else if(yellow == black && black == orange && orange == blue) {
-    maxWallString = "Alle muren zijn exact even groot";
-  }
-
-  return maxWallString;
-}
-
-
-function getSmallestWall(yellow, black, orange, blue) {
-
-  // starten van het standpunt dat de gele muur de grootste is
-  var min = yellow;
-  var minWallString = "Muur 1";
-
-  if(min > black) {
-    min = black;
-    minWallString = "Muur 2";
-  }
-  else if(min > orange) {
-    min = orange;
-    minWallString = "Muur 3";
-  }
-  else if(max > blue) {
-    min = blue;
-    minWallString = "Muur 4";
-  }
-  else if(min == black ||min == orange || min == blue) {
-    minWallString = "Meer dan 1 grootste muur";
-  } 
-  else if(yellow == black && black == orange && orange == blue) {
-    minWallString = "Alle muren zijn exact even groot";
-  }
-
-  return minWallString;
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-
-function getBiggestWall(yellow, black, orange, blue) {
-  var max = yellow;
-  var maxWall = "Muur 1";
-  
-  if(max < black) {
-    max = black;
-    maxWall = 'Muur 2';
-  }
-  else if(max < orange) {
-    max = orange;
-    maxWall = 'Muur 3';    
-  }
-  else if(max < blue) {
-    max = blue;
-    maxWall = 'Muur 4';
-  }
-  else if(yellow == black && black == orange && orange == blue) {
-    maxWall = "Allemaal even groot";
-  }
-  // bijkomende voorwaarde als er meer dan 1 grootste muur is (vb 2 identieke grootste muren)
-  else if(max == black || max == orange || max == blue) {
-    maxWall = "Er is meer dan 1 grootste muur";
-  }
-  
-   return maxWall;
-}*/
-
-
-
-
-
-
-
-
-/*
-function getSmallestWall(yel,bla,ora,blu) {
-  var min = yel;
-  var minWall = "Muur 1";
-  
-  if(min > bla) {
-    min = bla;
-    minWall = 'Muur 2';
-  }
-  if(min > ora) {
-    min = ora;
-    minWall = 'Muur 3';    
-  }
-  if(min > blu) {
-    min = blu;
-    minWall = 'Muur 4';
-  }
-  if(yel == bla && bla == ora && ora == blu) {
-    minWall = "Allemaal even groot";
-  }
-  
-   return minWall;
-}*/
