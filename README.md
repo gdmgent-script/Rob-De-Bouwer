@@ -8,7 +8,7 @@
 - Solution ***solution***
 
 
-Excercise - guided
+Exercise - guided
 -------
 
 Download de broncode voor deze oefening. [BronCode](./assets/startcode_robdb.zip)
